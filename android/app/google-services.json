@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "764785964907",
+    "firebase_url": "https://wegotogether-test-default-rtdb.firebaseio.com",
+    "project_id": "wegotogether-test",
+    "storage_bucket": "wegotogether-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764785964907:android:2a1123878d55011eba7e2e",
+        "android_client_info": {
+          "package_name": "com.example.herewego"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7EE9BLWt0nxm-Jt0o98I4hnRWyjVtXkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
