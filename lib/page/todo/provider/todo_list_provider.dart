@@ -1,6 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:herewego/domain/usecase/todo/add_todo_item_usecase.dart';
+import 'package:herewego/domain/usecase/todo/delete_todo_item_usecase.dart';
+import 'package:herewego/domain/usecase/todo/dto/update_todo_dto.dart';
 import 'package:herewego/domain/usecase/todo/get_todo_item_usecase.dart';
+import 'package:herewego/domain/usecase/todo/update_todo_item_usecase.dart';
 import 'package:herewego/injector.dart';
 
 import '../../../domain/entity/todo_item.dart';
@@ -24,6 +27,26 @@ class TodoListNotifier extends StateNotifier<TodoItemState> {
     });
     await loadTodoItem();
   }
+
+  Future<void> updateTodoItem(String id, bool done) async {
+    final updateTodoItemUsecase = locator<UpdateTodoItemUseCase>();
+
+    await updateTodoItemUsecase(UpdateTodoDto(id: id, done: done),
+        onError: (error) {
+      state = TodoItemState.error(error.toString());
+    });
+    await loadTodoItem();
+  }
+
+  Future<void> deleteTodoItem(String todoId) async {
+    final deleteTodoItemUsecase = locator<DeleteTodoItemUseCase>();
+
+    await deleteTodoItemUsecase(todoId, onError: (error) {
+      state = TodoItemState.error(error.toString());
+    });
+    await loadTodoItem();
+  }
+
 }
 
 final todoListNotifierProvider =
