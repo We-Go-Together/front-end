@@ -1,3 +1,46 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:herewego/domain/usecase/auth/dto/login_dto.dart';
+import 'package:herewego/page/widget/email_input.dart';
+import 'package:herewego/page/widget/password_input.dart';
+
+import '../../../domain/usecase/auth/dto/register_dto.dart';
+
+class RegisterValidator extends StateNotifier<RegisterFormState> {
+  RegisterValidator() : super(RegisterFormState());
+
+  void emailChanged(String email) {
+    final emailInput = EmailInput.dirty(value: email);
+    state = state.copyWith(email: email, isEmailValid: emailInput.isValid);
+  }
+
+  void nameChanged(String name) {
+    final isNameValid = name.isNotEmpty;
+    state = state.copyWith(name: name, isNameValid: isNameValid);
+  }
+
+  void passwordChanged(String password) {
+    final passwordInput = PasswordInput.dirty(value: password);
+    state = state.copyWith(
+        password: password, isPasswordValid: passwordInput.isValid);
+  }
+
+  void confirmPasswordChanged(String confirmPassword) {
+    final isConfirmPasswordValid = state.password == confirmPassword;
+    state = state.copyWith(
+        confirmPassword: confirmPassword,
+        isConfirmPasswordValid: isConfirmPasswordValid);
+  }
+
+  RegisterDto getRegisterDto() {
+    return RegisterDto(
+        email: state.email, name: state.name, password: state.password);
+  }
+}
+
+final registerValidatorProvider =
+    StateNotifierProvider<RegisterValidator, RegisterFormState>(
+        (_) => RegisterValidator());
+
 class RegisterFormState {
   final String email;
   final String name;
@@ -18,7 +61,8 @@ class RegisterFormState {
       this.isPasswordValid = false,
       this.isConfirmPasswordValid = false});
 
-  bool get canSubmit => isEmailValid && isPasswordValid;
+  bool get canSubmit =>
+      isEmailValid && isPasswordValid && isNameValid && isConfirmPasswordValid;
 
   RegisterFormState copyWith({
     String? email,

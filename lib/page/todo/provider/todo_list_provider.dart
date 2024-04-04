@@ -1,4 +1,34 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:herewego/domain/usecase/todo/add_todo_item_usecase.dart';
+import 'package:herewego/domain/usecase/todo/get_todo_item_usecase.dart';
+import 'package:herewego/injector.dart';
+
 import '../../../domain/entity/todo_item.dart';
+
+class TodoListNotifier extends StateNotifier<TodoItemState> {
+  TodoListNotifier() : super(TodoItemState.initial());
+
+  Future<void> loadTodoItem() async {
+    final getTodoItemsUseCase = locator<GetTodoItemUseCase>();
+    final result = await getTodoItemsUseCase(null, onError: (error) {
+      state = TodoItemState.error(error.toString());
+    });
+    state =
+        result.isEmpty ? TodoItemState.empty() : TodoItemState.success(result);
+  }
+
+  Future<void> addTodoItem(String text) async {
+    final addTodoItemUseCase = locator<AddTodoItemUseCase>();
+    await addTodoItemUseCase(text, onError: (error) {
+      state = TodoItemState.error(error.toString());
+    });
+    await loadTodoItem();
+  }
+}
+
+final todoListNotifierProvider =
+    StateNotifierProvider<TodoListNotifier, TodoItemState>(
+        (_) => TodoListNotifier());
 
 class TodoItemState {
   final bool isLoading;
