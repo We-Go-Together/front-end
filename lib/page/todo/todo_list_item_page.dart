@@ -18,6 +18,15 @@ class _TodoItemsPageState extends ConsumerState<TodoItemsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todo Items'),
+        actions: [
+          IconButton(
+            onPressed: () =>
+                ref.read(todoListNotifierProvider.notifier).loadTodoItem(),
+            icon: const Icon(
+              Icons.refresh,
+            ),
+          ),
+        ],
       ),
       body: todoItemState.isLoading
           ? const Center(
