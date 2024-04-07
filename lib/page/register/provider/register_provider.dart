@@ -1,13 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:herewego/domain/entity/user_profile.dart';
-import 'package:herewego/domain/usecase/auth/dto/register_dto.dart';
-import 'package:herewego/domain/usecase/auth/register_usecase.dart';
+import 'package:herewego/domain/auth/usecase/dto/register_dto.dart';
+import 'package:herewego/domain/auth/usecase/register_usecase.dart';
 import 'package:herewego/injector.dart';
-import 'package:herewego/page/register/provider/register_validator_provider.dart';
-
-import '../../../domain/usecase/auth/dto/login_dto.dart';
-import '../../widget/email_input.dart';
-import '../../widget/password_input.dart';
 
 // 제출 부분
 class RegisterNotifier extends StateNotifier<RegisterState> {

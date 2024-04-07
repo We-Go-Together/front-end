@@ -1,8 +1,8 @@
 import 'package:herewego/domain/data_repository.dart';
+import 'package:herewego/domain/result.dart';
 import 'package:herewego/domain/usecase.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../result.dart';
 
 @injectable
 class AddTodoItemUseCase implements UseCase<void, String> {

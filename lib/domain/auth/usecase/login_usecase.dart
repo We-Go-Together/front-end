@@ -1,6 +1,6 @@
-import 'package:herewego/domain/entity/user_profile.dart';
+import 'package:herewego/domain/auth/entity/user_profile.dart';
+import 'package:herewego/domain/auth/usecase/dto/login_dto.dart';
 import 'package:herewego/domain/usecase.dart';
-import 'package:herewego/domain/usecase/auth/dto/login_dto.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data_repository.dart';

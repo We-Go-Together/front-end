@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:herewego/data/data_source/auth_data_source.dart';
 import 'package:herewego/domain/data_repository.dart';
-import 'package:herewego/domain/entity/todo_item.dart';
-import 'package:herewego/domain/entity/user_profile.dart';
+import 'package:herewego/domain/todo/entity/todo_item.dart';
+import 'package:herewego/domain/auth/entity/user_profile.dart';
 import 'package:herewego/domain/result.dart';
-import 'package:herewego/domain/usecase/todo/dto/update_todo_dto.dart';
+import 'package:herewego/domain/todo/usecase/todo/dto/update_todo_dto.dart';
 import 'package:injectable/injectable.dart';
 
 import 'data_source/todo_data_source.dart';

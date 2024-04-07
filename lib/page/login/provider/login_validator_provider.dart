@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:herewego/domain/usecase/auth/dto/login_dto.dart';
+import 'package:herewego/domain/auth/usecase/dto/login_dto.dart';
 import 'package:herewego/page/widget/email_input.dart';
 import 'package:herewego/page/widget/password_input.dart';
 

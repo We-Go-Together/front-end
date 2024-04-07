@@ -1,4 +1,4 @@
-import 'package:herewego/domain/entity/user_profile.dart';
+import 'package:herewego/domain/auth/entity/user_profile.dart';
 import 'package:herewego/domain/usecase.dart';
 import 'package:injectable/injectable.dart';
 

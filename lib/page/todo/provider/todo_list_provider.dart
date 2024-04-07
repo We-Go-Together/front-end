@@ -1,12 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:herewego/domain/usecase/todo/add_todo_item_usecase.dart';
-import 'package:herewego/domain/usecase/todo/delete_todo_item_usecase.dart';
-import 'package:herewego/domain/usecase/todo/dto/update_todo_dto.dart';
-import 'package:herewego/domain/usecase/todo/get_todo_item_usecase.dart';
-import 'package:herewego/domain/usecase/todo/update_todo_item_usecase.dart';
+import 'package:herewego/domain/todo/usecase/todo/add_todo_item_usecase.dart';
+import 'package:herewego/domain/todo/usecase/todo/delete_todo_item_usecase.dart';
+import 'package:herewego/domain/todo/usecase/todo/dto/update_todo_dto.dart';
+import 'package:herewego/domain/todo/usecase/todo/get_todo_item_usecase.dart';
+import 'package:herewego/domain/todo/usecase/todo/update_todo_item_usecase.dart';
+
 import 'package:herewego/injector.dart';
 
-import '../../../domain/entity/todo_item.dart';
+import '../../../domain/todo/entity/todo_item.dart';
 
 class TodoListNotifier extends StateNotifier<TodoItemState> {
   TodoListNotifier() : super(TodoItemState.initial());

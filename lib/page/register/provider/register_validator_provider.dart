@@ -1,9 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:herewego/domain/usecase/auth/dto/login_dto.dart';
+import 'package:herewego/domain/auth/usecase/dto/register_dto.dart';
 import 'package:herewego/page/widget/email_input.dart';
 import 'package:herewego/page/widget/password_input.dart';
 
-import '../../../domain/usecase/auth/dto/register_dto.dart';
 
 class RegisterValidator extends StateNotifier<RegisterFormState> {
   RegisterValidator() : super(RegisterFormState());

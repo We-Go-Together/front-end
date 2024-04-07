@@ -1,8 +1,8 @@
-import 'package:herewego/domain/entity/user_profile.dart';
+import 'package:herewego/domain/auth/entity/user_profile.dart';
 import 'package:herewego/domain/result.dart';
-import 'package:herewego/domain/usecase/todo/dto/update_todo_dto.dart';
+import 'package:herewego/domain/todo/usecase/todo/dto/update_todo_dto.dart';
 
-import 'entity/todo_item.dart';
+import 'todo/entity/todo_item.dart';
 
 abstract class DataRepository {
   Future<Result<UserProfile>> login(String email, String password);

@@ -1,5 +1,5 @@
 import 'package:herewego/di/firebase_service.dart';
-import 'package:herewego/domain/entity/todo_item.dart';
+import 'package:herewego/domain/todo/entity/todo_item.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton
