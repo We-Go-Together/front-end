@@ -43,6 +43,7 @@ class DataRepositoryImpl implements DataRepository {
             email: user.email ?? '');
       });
 
+  @override
   Future<Result<UserProfile>> getUser() => executeSafe(() async {
         final user = await _authDataSource.getCurrentUser();
         return UserProfile(
